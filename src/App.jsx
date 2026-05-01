@@ -1,10 +1,13 @@
 //race is used to create a bilerplate code.
-import React from 'react'
+import React, { useState } from 'react'
+import Navbar from './components/Navbar'
 
 const App = () => {
+  const [theme, setTheme] = useState('light') //porps
+
   return (
-    <div>
-      
+    <div className='dark:bg-black relative'>
+      <Navbar theme={theme} setTheme={setTheme} />
     </div>
   )
 }
