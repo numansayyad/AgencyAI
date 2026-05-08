@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import assets from '../assets/assets'
+import ThemeToggle from './ThemeToggle';
 
 const Navbar = ({ theme, setTheme }) => { //props
 
@@ -17,18 +18,23 @@ const [sidebarOpen,setSidebarOpen]=useState(false);
   ${!sidebarOpen ? 'max-sm:w-0 overflow-hidden' : 'max-sm:w-60 max-sm:pl-10'} 
   max-sm:fixed top-0 bottom-0 right-0 max-sm:min-h-screen max-sm:h-full 
   max-sm:flex-col max-sm:bg-primary max-sm:text-white max-sm:pt-20 
-  flex sm:items-center gap-5 transition-all`}>
+  flex sm:items-center gap-5 transition-all`} onClick={()=>setSidebarOpen(false)} >  {/*On click, close the sidebar by setting sidebarOpen = false*/} 
 
 
 <img src={assets.close_icon} alt="" className='w-5 absolute right-4 top-4 sm:hidden'/>
 
-        <a href="#" className='sm:hover:border-b'>Home</a>
-        <a href="services" className='sm:hover:border-b'>Services</a>
-        <a href="our work" className='sm:hover:border-b'>Our Work</a>
-        <a href="contact us" className='sm:hover:border-b'>Contect Us</a>
-
+        <a onClick={()=>setSidebarOpen(false)} href="#" className='sm:hover:border-b'>Home</a> {/*if i clicked home button then side bar is closed*/}
+        <a   onClick={()=>setSidebarOpen(false)} href="services" className='sm:hover:border-b'>Services</a>
+        <a  onClick={()=>setSidebarOpen(false)} href="our work" className='sm:hover:border-b'>Our Work</a>
+        <a  onClick={()=>setSidebarOpen(false)} href="contact us" className='sm:hover:border-b'>Contect Us</a>
       </div>
-      <div><a href="#contact-us" className='text-sm max-sm:hidden flex items-center gap-2 bg-primary text-white px-6 py-2 rounded-full cursor-pointer hover:scale-103 transition-all'>
+
+      <div className='flex items-center gap-2 sm:gap-4'>
+
+        <ThemeToggle theme={theme} setTheme={setTheme}/>{/*Pass current theme and updater function to ThemeToggle component*/} 
+              <img src={theme=='dark'?assets.menu_icon:assets.menu_icon} alt="" onClick={()=>setSidebarOpen(true)} className='w-8 sm:hidden'/>  {/* On click, close the sidebar by setting sidebarOpen = false */}
+
+        <a href="#contact-us" className='text-sm max-sm:hidden flex items-center gap-2 bg-primary text-white px-6 py-2 rounded-full cursor-pointer hover:scale-103 transition-all'>
         Connect <img src={assets.arrow_icon} width={14} alt="" />
       </a>
       </div>
