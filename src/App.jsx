@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import TrustedBy from './components/TrustedBy'
 import Services from './components/Services'
+import ServiceCard from './components/ServiceCard'
 
 const App = () => {
     // Initialize theme from localStorage, default to 'light'
@@ -14,9 +15,10 @@ const App = () => {
     <div className='dark:bg-black relative'>
       <Navbar theme={theme} setTheme={setTheme} />
     <Hero/>
-X
+
     <TrustedBy/>
     <Services/>
+
     </div>
   )
 }
