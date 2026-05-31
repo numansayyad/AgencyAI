@@ -5,6 +5,7 @@ import Hero from './components/Hero'
 import TrustedBy from './components/TrustedBy'
 import Services from './components/Services'
 import ServiceCard from './components/ServiceCard'
+import OurWork from './components/OurWork'
 
 const App = () => {
     // Initialize theme from localStorage, default to 'light'
@@ -18,6 +19,7 @@ const App = () => {
 
     <TrustedBy/>
     <Services/>
+    <OurWork/>
 
     </div>
   )
